@@ -1,0 +1,61 @@
+【拉取分支】 
+	——$git clone -b zzk http://...
+	加上参数-b 和分支名 即可拉去对应分支
+
+【 查看本地分支】：	
+	——$git branch   	
+		
+		创建本地分支：
+			—— $git branch 分支名  
+		
+
+ 		把本地分支推到远程分支 
+
+		$ git push origin 分支名  
+		
+		 切换分支
+		$ git checkout 分支名  
+
+ 		————————————————————————————
+		|删除本地分支及远程分支
+		|	先查看远程分支
+		|	git branch -r
+		|
+		|	再切换到要删除的分支
+		|	git checkout 切换的分支名字
+		|
+		|	删除分支
+		|	git branch -r -d origin/branch-name
+		|
+		|	将删除的分支推送到远程，并在远程删除这个分支
+		|	git push origin :branch-name  
+		_________________________________________________________	
+	
+
+【查看远程分支】：
+	——$git branch -r
+
+
+【更新本地分支】：
+	$ git fetch <远程主机名>
+
+要更新所有分支，
+	命令可以简写为：，
+	——$git fetch  (将某个远程主机的更新，全部取回本地。默认情况下，git fetch取回所有分支的更新)
+
+	如需只取回特定分支
+	——$git fetch <主机名> <分支名> （主机名和分支名使用查看远程分支得到）
+————————————————————
+以上$git fetch 操作不会在本地创建分支（branch）
+
+	如需更新时并创建分支：
+		——$git fetch origin branch2:branch2
+		首先执行上面的fetch操作，使用远程branch2分支在本地创建branch2(但不会切换到该分支),
+		如果本地不存在branch2分支, 则会自动创建一个新的branch2分支,
+
+
+【切换分支】：
+	——$git checkout <分支名> （如果此时有改动，应该add 和 commit 之后在操作才可）
+
+	切换之后再提交-需要关联一下分支【具体git会提示】
+	——$git checkout -b <分支名>  创建并切换
